@@ -1,0 +1,197 @@
+[
+    {
+        "id": "26927866a4b6f340",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bd1cd0ac3a9e72a7",
+        "type": "mqtt in",
+        "z": "26927866a4b6f340",
+        "name": "",
+        "topic": "DavizinDaora",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "c7ad45131fb153df",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 420,
+        "wires": [
+            [
+                "04aed534b56f57e4"
+            ]
+        ]
+    },
+    {
+        "id": "824538f9b3517dbb",
+        "type": "mqtt out",
+        "z": "26927866a4b6f340",
+        "name": "",
+        "topic": "DavizinDaora",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c7ad45131fb153df",
+        "x": 500,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "752456be3e691948",
+        "type": "aedes broker",
+        "z": "26927866a4b6f340",
+        "name": "Broker",
+        "mqtt_port": 1883,
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": "",
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "persistence_bind": "memory",
+        "dburl": "",
+        "usetls": false,
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "3f788c67b787600f"
+            ],
+            [
+                "efb553af42e7d386"
+            ]
+        ]
+    },
+    {
+        "id": "3f788c67b787600f",
+        "type": "debug",
+        "z": "26927866a4b6f340",
+        "name": "Status",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "efb553af42e7d386",
+        "type": "debug",
+        "z": "26927866a4b6f340",
+        "name": "Publish",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "f236cafbb5f6b507",
+        "type": "inject",
+        "z": "26927866a4b6f340",
+        "name": "Carimbo",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Testano carai",
+        "payloadType": "str",
+        "x": 280,
+        "y": 320,
+        "wires": [
+            [
+                "824538f9b3517dbb"
+            ]
+        ]
+    },
+    {
+        "id": "04aed534b56f57e4",
+        "type": "debug",
+        "z": "26927866a4b6f340",
+        "name": "Receptor",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "c7ad45131fb153df",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "127.0.0.1",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "2f51482e46b5de18",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-aedes": "0.15.0"
+        }
+    }
+]
